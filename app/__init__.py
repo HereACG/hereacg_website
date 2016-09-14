@@ -21,7 +21,7 @@ def create_app(config_name):
     db.init_app(app)
     
     
-    # TODO (09/14/2016 Night) @thislight: Add blueprint and custom error page
+    # TODO (09/14/2016 Night) @thislight: Add blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     
