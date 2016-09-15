@@ -1,4 +1,5 @@
 # TODO (09/14/2016 Night)@thislight: move it to file 'basemodel.py'
+# Finished (09/15/2016 Night)@thislight 
 
 class ModelException(Exception):
     pass
