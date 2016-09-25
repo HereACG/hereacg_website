@@ -1,1 +1,46 @@
 <!DOCTYPE html>
+<head>
+  <title>{{ args.title }} - {{ langpack.orgname }}</title>
+  <link rel="stylesheet" href="/static/css/material.min.css">
+  <script src="/static/script/material.min.js"></script>
+  <link rel="stylesheet" href="/static/css/materialicons.css">
+  <script src="/static/script/coffee-script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout-icon"></div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout__title">{{ args.title }}</span>
+        <div class="mdl-layout-spacer"></div>
+        <!-- TODO(09/25/2016 Aftermoon)@thislight: ADD Menu -->
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout__title">{{ langpack.orgname }}</span>
+      <nav class="mdl-navigation">
+        {% for item in site.lnav %}
+          <a class="mdl-navigation__link" herf="{{ item.herf }}">{{ item.text }}</a>
+        {% endfor %}
+    </span>
+      <main id="id_content" class="mdl-layout__content">
+        {% block content %}{% endblock %}
+      </main>
+      <footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">
+      {{ langpack.orgname }}
+    </div>
+    <ul class="mdl-mini-footer__link-list">
+      {% for item in site.footer_linklist %}
+      <li><a href="{{ item.herf }}">{{ item.text }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</footer>
+  </div>
+  <!-- Script Load -->
+  <script src="/static/script/jquery-3.1.1.min.js"></script>
+  <script src="/static/script/vue.js"></script>
+</body>
