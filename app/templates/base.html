@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <head>
-  <title>{{ args.title }} - {{ langpack.orgname }}</title>
+  <title>{{ arg.title }} - {% block orgname %}{% endblock orgname %}</title>
   <link rel="stylesheet" href="/static/css/material.min.css">
   <script src="/static/script/material.min.js"></script>
   <link rel="stylesheet" href="/static/css/materialicons.css">
   <script src="/static/script/coffee-script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" >
 </head>
 <body>
   <div class="mdl-layout mdl-js-layout">
@@ -18,7 +19,7 @@
       </div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout__title">{{ langpack.orgname }}</span>
+      <span class="mdl-layout__title">{% block orgname %}{% endblock orgname %}</span>
       <nav class="mdl-navigation">
         {% for item in site.lnav %}
           <a class="mdl-navigation__link" herf="{{ item.herf }}">{{ item.text }}</a>
@@ -30,7 +31,7 @@
       <footer class="mdl-mini-footer">
   <div class="mdl-mini-footer__left-section">
     <div class="mdl-logo">
-      {{ langpack.orgname }}
+      {% block orgname %}{% endblock orgname %}
     </div>
     <ul class="mdl-mini-footer__link-list">
       {% for item in site.footer_linklist %}
@@ -44,3 +45,5 @@
   <script src="/static/script/jquery-3.1.1.min.js"></script>
   <script src="/static/script/vue.js"></script>
 </body>
+
+{% block orgname %} Here 二次元 {% endblock orgname %}
